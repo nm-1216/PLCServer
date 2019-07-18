@@ -1,0 +1,58 @@
+[
+  /*
+  {
+    "Name": "A",
+    "IpAddress": "192.168.1.111",
+    "Port": 44818,
+    "Siemens": 1,
+    "Slot": 0,
+    "ProviderName": "AllenBradleyNet",
+    "List": [
+      {"Address": "M1","type": "bool"},
+      {"Address": "M2","type": "bool"},
+      {"Address": "M3","type": "bool"},
+      {"Address": "M4","type": "bool"},
+      {"Address": "M5","type": "bool"},
+
+      {"Address": "INT1","type": "int16"},
+      {"Address": "INT2","type": "int16"},
+      {"Address": "INT3","type": "int32"},
+      {"Address": "INT4","type": "int32"},
+
+      {"Address": "Float1","type": "float"},
+      {"Address": "Float2","type": "float"},
+
+      {"Address": "Char1.DATA","type": "string", "Length": 82},
+      {"Address": "Char2.DATA","type": "string","Length":82 },
+    ]
+  },
+  */
+  {
+    "Name": "B",
+    "IpAddress": "192.168.0.30",
+    "Port": 44818,
+    "Siemens": 1,
+    "Slot": 0,
+    "ProviderName": "SiemensS7Net",
+    "List": [
+    /*
+      {"Address": "DB1.0.0","type": "bool"},
+      {"Address": "DB1.0.1","type": "bool"},
+      {"Address": "DB1.0.2","type": "bool"},
+      {"Address": "DB1.0.3","type": "bool"},
+      {"Address": "DB1.0.4","type": "bool"},
+
+      {"Address": "DB1.2","type": "int16"},
+      {"Address": "INT2","type": "int16"},
+      {"Address": "INT3","type": "int32"},
+      {"Address": "INT4","type": "int32"},
+
+      {"Address": "Float1","type": "float"},
+      {"Address": "Float2","type": "float"},
+
+      {"Address": "Char1.DATA","type": "string", "Length": 82},
+      {"Address": "Char2.DATA","type": "string","Length":82 },
+      */
+    ]
+  }
+]
