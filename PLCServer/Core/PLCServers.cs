@@ -9,20 +9,28 @@ namespace PLCServer
     {
         static PLCServers()
         {
-            KeyValues = new Dictionary<string, object>();
+            _KeyValues = new Dictionary<string, object>();
             List = new Dictionary<string, IPLC>();
         }
 
         /// <summary>
         /// PLC 集合
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public static Dictionary<string, IPLC> List { get; internal set; }
 
         /// <summary>
         /// PLC 值集合
         /// </summary>
-        public static Dictionary<string, object> KeyValues { get; internal set; }
-        
+        // ReSharper disable once InconsistentNaming
+        private static Dictionary<string, object> _KeyValues { get; set; }
+
+        public static Dictionary<string, object> KeyValues
+        {
+            //为什么要 ToArray 由于集合序列化的时候 存在被其他线程修改，需要 ToArray创建副本
+            get { return _KeyValues; }
+        }
+
         /// <summary>
         /// 获取PLC
         /// </summary>
@@ -40,13 +48,30 @@ namespace PLCServer
         /// <param name="value">value</param>
         public static void AddKeyValue(string key, object value)
         {
-            if (KeyValues.ContainsKey(key))
+            if (_KeyValues.ContainsKey(key))
             {
-                KeyValues[key] = value;
+                _KeyValues[key] = value;
             }
             else
             {
-                KeyValues.Add(key, value);
+                _KeyValues.Add(key, value);
+            }
+        }
+
+        public static void AddKeyValue(string key, object value, ref Dictionary<string, object> changeData)
+        {
+            if (_KeyValues.ContainsKey(key))
+            {
+                if (!_KeyValues[key].Equals(value))
+                {
+                    changeData.Add(key, value);
+                    _KeyValues[key] = value;
+                }
+            }
+            else
+            {
+                changeData.Add(key, value);
+                _KeyValues.Add(key, value);
             }
         }
 
@@ -64,9 +89,9 @@ namespace PLCServer
 
             foreach (var item in keys)
             {
-                if (KeyValues.ContainsKey(item))
+                if (_KeyValues.ContainsKey(item))
                 {
-                    obj.Add(KeyValues[item]);
+                    obj.Add(_KeyValues[item]);
                 }
                 else
                 {

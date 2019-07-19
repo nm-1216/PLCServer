@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using HslCommunication;
 using HslCommunication.Core;
@@ -41,25 +43,33 @@ namespace PLCServer.Provider
 
         public void StartScan()
         {
-            Thread oGetArgThread = new Thread(() =>
+            Thread myThread = new Thread(() =>
             {
                 while (true)
                 {
                     Thread.Sleep(100);
+                    var data = new Dictionary<string, object>();
 
                     foreach (var item in Config.List)
                     {
-                        var tmp = Utils._ReadObject(this, item);
+                        var tmp = Utils._ReadObject(this, item, ref data);
                         if (_connectionState != tmp)
                         {
                             _connectionState = tmp;
                             StatusChange?.Invoke(this, tmp);
                         }
                     }
+
+                    if (data.Any())
+                    {
+                        DataChange?.Invoke(this, data);
+                        data.Clear();
+                    }
                 }
+
                 // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
-            oGetArgThread.Start();
+            myThread.Start();
         }
 
         #region Write

@@ -1,4 +1,5 @@
-﻿using HslCommunication;
+﻿using System.Collections.Generic;
+using HslCommunication;
 using PLCServer.Config;
 
 // ReSharper disable once CheckNamespace
@@ -6,7 +7,7 @@ namespace PLCServer
 {
     public class Utils
     {
-        public static bool _ReadObject<T>(T plc, PLCItem item) where T : IPLC
+        public static bool _ReadObject<T>(T plc, PLCItem item, ref Dictionary<string, object> changeData) where T : IPLC
         {
             bool tmp;
             object value = null;
@@ -66,16 +67,15 @@ namespace PLCServer
             tmp = rst.IsSuccess;
             if (rst.IsSuccess)
             {
-                PLCServers.AddKeyValue($"{item.Name}", value);
+                PLCServers.AddKeyValue($"{item.Name}", value, ref changeData);
             }
             else
             {
-                PLCServers.AddKeyValue($"{item.Name}", null);
+                PLCServers.AddKeyValue($"{item.Name}", null, ref changeData);
                 plc.LogNet.WriteError($"读取地址失败:{item.Address},{item.Type},{rst.Message}");
             }
 
             return tmp;
         }
-
     }
 }
