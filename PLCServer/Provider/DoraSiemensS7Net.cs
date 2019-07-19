@@ -1,0 +1,133 @@
+using System.Threading;
+using HslCommunication;
+using HslCommunication.Core;
+using HslCommunication.Profinet.Siemens;
+using PLCServer.Config;
+
+namespace PLCServer.Provider
+{
+    public class DoraSiemensS7Net : SiemensS7Net, IPLC
+    {
+        public DoraSiemensS7Net(SiemensPLCS siemens) : base(siemens)
+        {
+        }
+
+        public DoraSiemensS7Net(PLCServerConfig config) : base(config.Siemens, config.IpAddress)
+        {
+            Config = config;
+            Name = config.Name;
+        }
+
+        public new IByteTransform ByteTransform
+        {
+            get { return base.ByteTransform; }
+        }
+
+        public event PLCEvent_DataChangeEventHandler DataChange;
+        public event PLCEvent_DataReaderEventHandler DataReader;
+        public event PLCEvent_StatusChangeEventHandler StatusChange;
+
+        public string Name { get; set; }
+
+        private bool _connectionState = true;
+
+        public PLCServerConfig Config { get; private set; }
+
+        public void StartReader()
+        {
+            DataReader?.Invoke(this);
+        }
+
+        public void StartScan()
+        {
+            Thread oGetArgThread = new Thread(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(100);
+
+                    foreach (var item in Config.List)
+                    {
+                        var tmp = Utils._ReadObject(this, item);
+                        if (_connectionState != tmp)
+                        {
+                            _connectionState = tmp;
+                            StatusChange?.Invoke(this, tmp);
+                        }
+                    }
+                }
+            }) {IsBackground = true};
+            oGetArgThread.Start();
+            
+        }
+
+        #region Write
+
+        public new OperateResult Write(string name, bool value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, short value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, int value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, long value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, float value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, double value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        public new OperateResult Write(string name, string value)
+        {
+            var tmp = Config.List.Find(b => b.Name == name);
+            if (null != tmp)
+                return base.Write(tmp.Address, value);
+            else
+                return new OperateResult($"Tag Name {name} can't find");
+        }
+
+        #endregion
+
+
+    }
+}

@@ -7,27 +7,31 @@ using Newtonsoft.Json;
 
 namespace PLCServer.Config
 {
+    // ReSharper disable once InconsistentNaming
     public class PLCServerConfig
     {
-        private static IList<PLCServerConfig> _list;
+        private static IList<PLCServerConfig> _plc;
 
-        public static IList<PLCServerConfig> list { get {
+        public static IList<PLCServerConfig> PlcList
+        {
+            get
+            {
 
-                if (null == _list)
+                if (null == _plc)
                 {
                     StreamReader sr = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}PLCConfig.json", Encoding.Default);
                     var tmp = sr.ReadToEnd();
 
-                    _list = JsonConvert.DeserializeObject<IList<PLCServerConfig>>(tmp);
+                    _plc = JsonConvert.DeserializeObject<IList<PLCServerConfig>>(tmp);
                 }
 
-                return _list;
+                return _plc;
             }
         }
 
 
         /// <summary>
-        /// PLC名称 <不能重名>
+        /// PLC名称 不能重名
         /// </summary>
         public string Name { get; set; }
         

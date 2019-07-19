@@ -1,5 +1,6 @@
 namespace PLCServer.Config
 {
+    // ReSharper disable once InconsistentNaming
     public class PLCItem
     {
         /// <summary>
@@ -14,7 +15,7 @@ namespace PLCServer.Config
         byte             字节
         word             字 16位整数
         dword            双字 32位整数
-        int              带符号16位整数
+        short            带符号16位整数
         dint             带符号32位整数
         real             浮点数 实数 32位
 */
