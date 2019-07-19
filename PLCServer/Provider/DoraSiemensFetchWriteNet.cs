@@ -9,7 +9,8 @@ namespace PLCServer.Provider
     public class DoraSiemensFetchWriteNet : SiemensFetchWriteNet, IPLC
     {
         
-        public DoraSiemensFetchWriteNet() : base()
+        // ReSharper disable once UnusedMember.Global
+        public DoraSiemensFetchWriteNet(string ip, int port) : base(ip, port)
         {
         }
 
@@ -57,6 +58,7 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
             oGetArgThread.Start();
         }

@@ -33,6 +33,7 @@ namespace PLCServer.Config
         /// <summary>
         /// PLC名称 不能重名
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string Name { get; set; }
         
         /// <summary>
@@ -43,26 +44,32 @@ namespace PLCServer.Config
         /// <summary>
         /// 端口
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public int Port { get; set; }
 
         /// <summary>
         /// AB要用
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public Byte Slot { get; set; }
 
         /// <summary>
         /// 西门子PLC类型
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public SiemensPLCS Siemens { get; set; }
         
         /// <summary>
         /// 驱动程序
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string ProviderName { get; set; }
 
         /// <summary>
         /// PLC地址表
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        // ReSharper disable once CollectionNeverUpdated.Global
         public List<PLCItem> List { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace PLCServer.Provider
 {
     public class DoraAllenBradleyNet : AllenBradleyNet, IPLC
     {
-        
-        public DoraAllenBradleyNet() : base()
+        // ReSharper disable once UnusedMember.Global
+        public DoraAllenBradleyNet(string ip, int port) : base(ip, port)
         {
         }
 
@@ -42,7 +42,7 @@ namespace PLCServer.Provider
 
         public void StartScan()
         {
-            Thread oGetArgThread = new Thread(() =>
+            Thread myThread = new Thread(() =>
             {
                 while (true)
                 {
@@ -58,8 +58,9 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
-            oGetArgThread.Start();
+            myThread.Start();
         }
 
         #region Write

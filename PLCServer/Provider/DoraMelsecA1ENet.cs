@@ -8,7 +8,8 @@ namespace PLCServer.Provider
 {
     public class DoraMelsecA1ENet: MelsecA1ENet, IPLC
     {
-        public DoraMelsecA1ENet() : base()
+        // ReSharper disable once UnusedMember.Global
+        public DoraMelsecA1ENet(string ip, int port) : base(ip, port)
         {
         }
 
@@ -56,6 +57,7 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
             oGetArgThread.Start();
         }

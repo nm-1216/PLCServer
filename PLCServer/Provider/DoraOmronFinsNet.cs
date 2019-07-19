@@ -9,14 +9,15 @@ namespace PLCServer.Provider
     public class DoraOmronFinsNet : OmronFinsNet, IPLC
     {
         
-        public DoraOmronFinsNet() : base()
+        // ReSharper disable once UnusedMember.Global
+        public DoraOmronFinsNet(string ip, int port) : base(ip, port)
         {
         }
 
         public DoraOmronFinsNet(PLCServerConfig config) : base(config.IpAddress, config.Port)
         {
-            this.Config = config;
-            this.Name = config.Name;
+            Config = config;
+            Name = config.Name;
         }
 
         public new IByteTransform ByteTransform
@@ -57,6 +58,7 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
             oGetArgThread.Start();
         }

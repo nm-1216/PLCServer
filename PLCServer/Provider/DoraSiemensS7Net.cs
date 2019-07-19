@@ -56,6 +56,7 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
             oGetArgThread.Start();
             

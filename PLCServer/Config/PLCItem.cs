@@ -6,8 +6,10 @@ namespace PLCServer.Config
         /// <summary>
         /// 
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string Address { get; set; }
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string Name { get; set; }
         
 /*
@@ -22,6 +24,7 @@ namespace PLCServer.Config
         /// <summary>
         /// 值类型
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string Type { get; set; }
 
 

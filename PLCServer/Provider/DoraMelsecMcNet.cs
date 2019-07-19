@@ -9,14 +9,15 @@ namespace PLCServer.Provider
     public class DoraMelsecMcNet : MelsecMcNet, IPLC
     {
        
-        public DoraMelsecMcNet() : base()
+        // ReSharper disable once UnusedMember.Global
+        public DoraMelsecMcNet(string ip, int port) : base(ip, port)
         {
         }
 
         public DoraMelsecMcNet(PLCServerConfig config) : base(config.IpAddress, config.Port)
         {
-            this.Config = config;
-            this.Name = config.Name;
+            Config = config;
+            Name = config.Name;
         }
 
         public new IByteTransform ByteTransform
@@ -57,6 +58,7 @@ namespace PLCServer.Provider
                         }
                     }
                 }
+                // ReSharper disable once FunctionNeverReturns
             }) {IsBackground = true};
             oGetArgThread.Start();
         }
