@@ -29,7 +29,7 @@ namespace PLCServer
 
         internal static string DebugFile
         {
-            get { return $"{AppDomain.CurrentDomain.BaseDirectory}/{DateTime.Now.ToString("yyyyMMdd")}.txt"; }
+            get { return $"{AppDomain.CurrentDomain.BaseDirectory}/{{0}}"; }
         }
 
         // ReSharper disable once InconsistentNaming
@@ -82,7 +82,14 @@ namespace PLCServer
 
             if (null != tmp)
             {
-                tmp.LogNet = new HslCommunication.LogNet.LogNetSingle(DebugFile);
+                tmp.LogNet = new HslCommunication.LogNet.LogNetDateTime(string.Format(DebugFile, config.Name));
+                
+//logNet.SetMessageDegree(HslMessageDegree.DEBUG);//所有等级存储
+//logNet.SetMessageDegree(HslMessageDegree.INFO);//除DEBUG外，都存储
+//logNet.SetMessageDegree(HslMessageDegree.WARN);//除DEBUG和INFO外，都存储
+//logNet.SetMessageDegree(HslMessageDegree.ERROR);//只存储ERROR和FATAL
+//logNet.SetMessageDegree(HslMessageDegree.FATAL);//只存储FATAL
+//logNet.SetMessageDegree(HslMessageDegree.None);//不存储任何等级
 
                 tmp.SetPersistentConnection();
                 var rst = tmp.ConnectServer();
