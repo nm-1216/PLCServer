@@ -1,4 +1,5 @@
 using System;
+using HslCommunication.LogNet;
 using PLCServer.Config;
 using PLCServer.Provider;
 
@@ -82,8 +83,8 @@ namespace PLCServer
 
             if (null != tmp)
             {
-                tmp.LogNet = new HslCommunication.LogNet.LogNetDateTime(string.Format(DebugFile, config.Name));
-                
+                tmp.LogNet = new HslCommunication.LogNet.LogNetDateTime(string.Format(DebugFile, config.Name), GenerateMode.ByEveryDay);
+
 //logNet.SetMessageDegree(HslMessageDegree.DEBUG);//所有等级存储
 //logNet.SetMessageDegree(HslMessageDegree.INFO);//除DEBUG外，都存储
 //logNet.SetMessageDegree(HslMessageDegree.WARN);//除DEBUG和INFO外，都存储
