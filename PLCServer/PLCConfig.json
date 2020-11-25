@@ -9,42 +9,94 @@
 
         "ProviderName": "SiemensS7Net",
         "List": [
-            {"name": "C1_SRMNO","Address": "DB510.0","type": "int16"},
-            {"name": "C1_TaskNO","Address": "DB510.2","type": "int32"},
-            {"name": "C1_StrAddRow","Address": "DB510.6","type": "int16"},
-            {"name": "C1_StrAddCol","Address": "DB510.8","type": "int16"},
-            {"name": "C1_StrAddLay","Address": "DB510.10","type": "int16"},
-            {"name": "C1_EndAddRow","Address": "DB510.12","type": "int16"},
-            {"name": "C1_EndAddCol","Address": "DB510.14","type": "int16"},
-            {"name": "C1_EndAddLay","Address": "DB510.16","type": "int16"},
-            {"name": "C1_SRMAction","Address": "DB510.18","type": "int16"},
-            {"name": "C1_StrExeSkid","Address": "DB510.24","type": "int32"},
-            {"name": "C1_CheckSkid","Address": "DB510.28","type": "int16"},
-            {"name": "C1_TaskError","Address": "DB510.30","type": "int16"},
-            {"name": "C1_LockState","Address": "DB510.90","type": "int16"},
-            {"name": "C1_SRMNumber","Address": "DB511.0", "type": "int16"},
-            {"name": "C1_SRMWorkMode","Address": "DB511.2", "type": "int16"},
-            {"name": "C1_SRMWorkState","Address": "DB511.4", "type": "int16"},
-            {"name": "C1_SRMError","Address": "DB511.6", "type": "int16"},
-            {"name": "C1_SRMReadSkid","Address": "DB511.10","type": "int32"},
+            {"name": "C1_SRMNO",            "Address": "DB510.0",       "type": "int16"},
+            {"name": "C1_TaskNO",           "Address": "DB510.2",       "type": "int32"},
+            {"name": "C1_StrAddRow",        "Address": "DB510.6",       "type": "int16"},
+            {"name": "C1_StrAddCol",        "Address": "DB510.8",       "type": "int16"},
+            {"name": "C1_StrAddLay",        "Address": "DB510.10",      "type": "int16"},
+            {"name": "C1_EndAddRow",        "Address": "DB510.12",      "type": "int16"},
+            {"name": "C1_EndAddCol",        "Address": "DB510.14",      "type": "int16"},
+            {"name": "C1_EndAddLay",        "Address": "DB510.16",      "type": "int16"},
+            {"name": "C1_SRMAction",        "Address": "DB510.18",      "type": "int16"},
+            {"name": "C1_StrExeSkid",       "Address": "DB510.24",      "type": "int32"},
+            {"name": "C1_CheckSkid",        "Address": "DB510.28",      "type": "int16"},
+            {"name": "C1_TaskError",        "Address": "DB510.30",      "type": "int16"},
+            {"name": "C1_LockState",        "Address": "DB510.90",      "type": "int16"},
+            {"name": "C1_SRMNumber",        "Address": "DB511.0",       "type": "int16"},
+            {"name": "C1_SRMWorkMode",      "Address": "DB511.2",       "type": "int16"},
+            {"name": "C1_SRMWorkState",     "Address": "DB511.4",       "type": "int16"},
+            {"name": "C1_SRMError",         "Address": "DB511.6",       "type": "int16"},
+            {"name": "C1_SRMReadSkid",      "Address": "DB511.10",      "type": "int32"},
 
-            {"name": "C1_7MPStageState","Address": "DB511.50","type": "int16"},
-            {"name": "C1_7MPStageError","Address": "DB511.52","type": "int16"},
-            {"name": "C1_7MPStageInPlace","Address": "DB511.54","type": "int16"},
-            {"name": "C1_7MPStageSkid","Address": "DB511.56","type": "int32"},
+            {"name": "C1_7MPStageState",    "Address": "DB511.50",      "type": "int16"},
+            {"name": "C1_7MPStageError",    "Address": "DB511.52",      "type": "int16"},
+            {"name": "C1_7MPStageInPlace",  "Address": "DB511.54",      "type": "int16"},
+            {"name": "C1_7MPStageSkid",     "Address": "DB511.56",      "type": "int32"},
 
-            {"name": "C1_4MPStageState","Address": "DB511.70","type": "int16"},
-            {"name": "C1_4MPStageError","Address": "DB511.72","type": "int16"},
+            {"name": "C1_4MPStageState",    "Address": "DB511.70",      "type": "int16"},
+            {"name": "C1_4MPStageError",    "Address": "DB511.72",      "type": "int16"},
 
-            {"name": "C1_7MWStageState","Address": "DB511.90","type": "int16"},
-            {"name": "C1_7MWStageError","Address": "DB511.92","type": "int16"},
-            {"name": "C1_7MWStageInPlace","Address": "DB511.94","type": "int16"},
-            {"name": "C1_7MWStageSkid","Address": "DB511.96","type": "int32"},
+            {"name": "C1_7MWStageState",    "Address": "DB511.90",      "type": "int16"},
+            {"name": "C1_7MWStageError",    "Address": "DB511.92",      "type": "int16"},
+            {"name": "C1_7MWStageInPlace",  "Address": "DB511.94",      "type": "int16"},
+            {"name": "C1_7MWStageSkid",     "Address": "DB511.96",      "type": "int32"},
 
-            {"name": "C1_4MEStageState","Address": "DB511.110","type": "int16"},
-            {"name": "C1_4MEStageError","Address": "DB511.112","type": "int16"},
-            {"name": "C1_4MEStageInPlace","Address": "DB511.114","type": "int16"},
-            {"name": "C1_4MEStageSkid","Address": "DB511.116","type": "int32"} 
+            {"name": "C1_4MEStageState",    "Address": "DB511.110",     "type": "int16"},
+            {"name": "C1_4MEStageError",    "Address": "DB511.112",     "type": "int16"},
+            {"name": "C1_4MEStageInPlace",  "Address": "DB511.114",     "type": "int16"},
+            {"name": "C1_4MEStageSkid",     "Address": "DB511.116",     "type": "int32"} 
+            
+            
+        ]
+    },
+    {
+        "Name": "B",
+        "IpAddress": "192.168.0.30",
+        "Port": 44818,
+
+        "Siemens": 1,
+        "Slot": 0,
+
+        "ProviderName": "SiemensS7Net",
+        "List": [
+            {"name": "C1_SRMNO",            "Address": "DB510.0",       "type": "int16"},
+            {"name": "C1_TaskNO",           "Address": "DB510.2",       "type": "int32"},
+            {"name": "C1_StrAddRow",        "Address": "DB510.6",       "type": "int16"},
+            {"name": "C1_StrAddCol",        "Address": "DB510.8",       "type": "int16"},
+            {"name": "C1_StrAddLay",        "Address": "DB510.10",      "type": "int16"},
+            {"name": "C1_EndAddRow",        "Address": "DB510.12",      "type": "int16"},
+            {"name": "C1_EndAddCol",        "Address": "DB510.14",      "type": "int16"},
+            {"name": "C1_EndAddLay",        "Address": "DB510.16",      "type": "int16"},
+            {"name": "C1_SRMAction",        "Address": "DB510.18",      "type": "int16"},
+            {"name": "C1_StrExeSkid",       "Address": "DB510.24",      "type": "int32"},
+            {"name": "C1_CheckSkid",        "Address": "DB510.28",      "type": "int16"},
+            {"name": "C1_TaskError",        "Address": "DB510.30",      "type": "int16"},
+            {"name": "C1_LockState",        "Address": "DB510.90",      "type": "int16"},
+            {"name": "C1_SRMNumber",        "Address": "DB511.0",       "type": "int16"},
+            {"name": "C1_SRMWorkMode",      "Address": "DB511.2",       "type": "int16"},
+            {"name": "C1_SRMWorkState",     "Address": "DB511.4",       "type": "int16"},
+            {"name": "C1_SRMError",         "Address": "DB511.6",       "type": "int16"},
+            {"name": "C1_SRMReadSkid",      "Address": "DB511.10",      "type": "int32"},
+
+            {"name": "C1_7MPStageState",    "Address": "DB511.50",      "type": "int16"},
+            {"name": "C1_7MPStageError",    "Address": "DB511.52",      "type": "int16"},
+            {"name": "C1_7MPStageInPlace",  "Address": "DB511.54",      "type": "int16"},
+            {"name": "C1_7MPStageSkid",     "Address": "DB511.56",      "type": "int32"},
+
+            {"name": "C1_4MPStageState",    "Address": "DB511.70",      "type": "int16"},
+            {"name": "C1_4MPStageError",    "Address": "DB511.72",      "type": "int16"},
+
+            {"name": "C1_7MWStageState",    "Address": "DB511.90",      "type": "int16"},
+            {"name": "C1_7MWStageError",    "Address": "DB511.92",      "type": "int16"},
+            {"name": "C1_7MWStageInPlace",  "Address": "DB511.94",      "type": "int16"},
+            {"name": "C1_7MWStageSkid",     "Address": "DB511.96",      "type": "int32"},
+
+            {"name": "C1_4MEStageState",    "Address": "DB511.110",     "type": "int16"},
+            {"name": "C1_4MEStageError",    "Address": "DB511.112",     "type": "int16"},
+            {"name": "C1_4MEStageInPlace",  "Address": "DB511.114",     "type": "int16"},
+            {"name": "C1_4MEStageSkid",     "Address": "DB511.116",     "type": "int32"}
+
+
         ]
     }
 ]

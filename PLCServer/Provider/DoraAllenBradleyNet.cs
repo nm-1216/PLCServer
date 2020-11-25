@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -17,15 +18,12 @@ namespace PLCServer.Provider
 
         public DoraAllenBradleyNet(PLCServerConfig config) : base(config.IpAddress, config.Port)
         {
-            this.Config = config;
-            this.Slot = config.Slot;
-            this.Name = config.Name;
+            Config = config;
+            Slot = config.Slot;
+            Name = config.Name;
         }
 
-        public new IByteTransform ByteTransform
-        {
-            get { return base.ByteTransform; }
-        }
+        public new IByteTransform ByteTransform => base.ByteTransform;
 
         public event PLCEvent_DataChangeEventHandler DataChange;
         public event PLCEvent_DataReaderEventHandler DataReader;
@@ -41,7 +39,7 @@ namespace PLCServer.Provider
         {
             DataReader?.Invoke(this);
         }
-
+        
         public void StartScan()
         {
             Thread myThread = new Thread(() =>
@@ -72,70 +70,49 @@ namespace PLCServer.Provider
             }) {IsBackground = true};
             myThread.Start();
         }
-
+        
         #region Write
 
         public new OperateResult Write(string name, bool value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, short value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, int value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, long value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, float value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, double value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         public new OperateResult Write(string name, string value)
         {
             var tmp = Config.List.Find(b => b.Name == name);
-            if (null != tmp)
-                return base.Write(tmp.Address, value);
-            else
-                return new OperateResult($"Tag Name {name} can't find");
+            return null != tmp ? base.Write(tmp.Address, value) : new OperateResult($"Tag Name {name} can't find");
         }
 
         #endregion

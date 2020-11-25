@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLCServer", "PLCServer\PLCServer.csproj", "{A99D3D35-DEEA-42AC-ABB4-58F3E840E9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{4414981A-4093-4CFF-B16E-C005D6D13F30}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{A99D3D35-DEEA-42AC-ABB4-58F3E840E9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A99D3D35-DEEA-42AC-ABB4-58F3E840E9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A99D3D35-DEEA-42AC-ABB4-58F3E840E9FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4414981A-4093-4CFF-B16E-C005D6D13F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4414981A-4093-4CFF-B16E-C005D6D13F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4414981A-4093-4CFF-B16E-C005D6D13F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4414981A-4093-4CFF-B16E-C005D6D13F30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

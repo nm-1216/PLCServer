@@ -25,11 +25,9 @@ namespace PLCServer
         // ReSharper disable once InconsistentNaming
         private static Dictionary<string, object> _KeyValues { get; set; }
 
-        public static Dictionary<string, object> KeyValues
-        {
+        public static Dictionary<string, object> KeyValues =>
             //为什么要 ToArray 由于集合序列化的时候 存在被其他线程修改，需要 ToArray创建副本
-            get { return _KeyValues; }
-        }
+            _KeyValues;
 
         /// <summary>
         /// 获取PLC
